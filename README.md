@@ -91,3 +91,4 @@ API_URL=http://127.0.0.1:8000
 Atividade do **Módulo 3 — Avaliação de Modelos de Linguagem** da Pós-Graduação em IA para Devs.
 
 O módulo aborda técnicas para medir e comparar a qualidade de respostas geradas por LLMs, explorando métricas automáticas como Perplexidade e BLEU como alternativas à avaliação humana.
+https://github.com/ThamirisdaSilva/iadt-prompts/tree/master
