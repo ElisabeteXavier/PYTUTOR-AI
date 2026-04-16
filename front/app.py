@@ -1,8 +1,11 @@
 import streamlit as st
 import requests
-from config import API_URL
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
+API_URL = os.getenv("API_URL")
 st.set_page_config(page_title="PyTutor AI", layout="centered")
 
 st.title("🤖 PyTutor AI")
@@ -27,15 +30,17 @@ if st.button("Perguntar"):
             with col1:
                 st.subheader("📘 Resposta A (Teórica)")
                 st.write(data["resposta_A"])
-
-                st.markdown("**Métricas:**")
-                st.write(f"Perplexidade: {data['metricas']['perplexidade_A']:.2f}")
-                st.write(f"BLEU: {data['metricas']['bleu_A']:.2f}")
-
+              
             with col2:
                 st.subheader("🧪 Resposta B (Prática)")
                 st.write(data["resposta_B"])
 
-                st.markdown("**Métricas:**")
-                st.write(f"Perplexidade: {data['metricas']['perplexidade_B']:.2f}")
-                st.write(f"BLEU: {data['metricas']['bleu_B']:.2f}")
+
+
+        st.subheader("📊 Métricas de Comparação")
+        st.subheader("RESPOSTA A")
+        st.write(f"Perplexidade: {data['metricas']['perplexidade_B']:.2f}")
+        st.write(f"BLEU: {data['metricas']['bleu_B']:.2f}")
+        st.subheader("RESPOSTA B")
+        st.write(f"Perplexidade: {data['metricas']['perplexidade_A']:.2f}")
+        st.write(f"BLEU: {data['metricas']['bleu_A']:.2f}")
